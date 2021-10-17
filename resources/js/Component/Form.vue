@@ -400,9 +400,11 @@
                         >
                         <input
                             multiple
+                            @change="onFileChange"
                             id="file-upload"
                             type="file"
                             name="file"
+                            enctype="multipart/form-data"
                             accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                             class="
                                 w-full
@@ -586,6 +588,11 @@
 </template>
 
 <script>
+// import { axios } from "../../../node_modules/axios/index";
+import axios from "axios";
+require("../saveFIleDrive");
+// import * as Drive from "../saveFIleDrive.js";
+
 export default {
     props: {
         subjects: [],
@@ -606,6 +613,7 @@ export default {
                 limitdate: "",
                 topic: "",
                 remark: "",
+                files: {},
             },
             disable: "disable",
         };
@@ -619,8 +627,52 @@ export default {
             ) {
                 this.disable = "enable";
             } else {
-                this.$inertia.post("/form", this.form);
+                // this.$inertia.post("/form", this.form);
+                // let formData = new URLSearchParams();
+                // formData.append("form", this.form);
+                axios.post("/form", this.getData()).then((res) => {
+                    console.log(res.data);
+                    res.data.forEach((element) => {
+                        Drive.uploadFile(element);
+                    });
+                });
             }
+        },
+
+        onFileChange(e) {
+            this.form.files = e.target.files || e.dataTransfer.files;
+
+            // console.log(this.form.files);
+            // if (!this.form.files.length) return;
+            // this.createImage(this.form.files[0]);
+        },
+        // createImage(file) {
+        //     var reader = new FileReader();
+        //     var vm = this;
+
+        //     reader.onload = (e) => {
+        //         vm.image = e.target.result;
+        //     };
+        //     reader.readAsDataURL(file);
+        // },
+        getData() {
+            let formData = new FormData();
+            formData.append("name", this.form.name);
+            formData.append("email", this.form.email);
+            formData.append("phone", this.form.phone);
+            formData.append("project_type_id", this.form.project_type_id);
+            formData.append("service_type_id", this.form.service_type_id);
+            formData.append("subject_id", this.form.subject_id);
+            formData.append("pageNbr", this.form.pageNbr);
+            formData.append("limitdate", this.form.limitdate);
+            formData.append("topic", this.form.topic);
+            formData.append("remark", this.form.remark);
+
+            for (let index = 0; index < this.form.files.length; index++) {
+                formData.append(`files[${index}]`, this.form.files[index]);
+            }
+
+            return formData;
         },
     },
 };

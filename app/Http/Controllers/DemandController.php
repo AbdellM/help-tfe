@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Demand;
+use App\Models\ServiceType;
+use App\Models\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DemandController extends Controller
 {
@@ -25,9 +28,19 @@ class DemandController extends Controller
      */
     public function store(Request $request)
     {
-        Demand::create($request->all());
-        return redirect('/contacts');
-        // return Redirect::route('/contacts');
+        // Demand::create($request->all());
+        // echo($request);
+        $arr = array();
+        foreach ($request->file('files') as $file) {
+            array_push($arr, Storage::putFile('fichiers', $file));
+        }
+
+        // return redirect('/thanks');
+        return $arr;
+    }
+    public static function showFile()
+    {
+        return File::all();
     }
 
     /**
@@ -36,7 +49,7 @@ class DemandController extends Controller
      * @param  \App\Models\Demand  $demand
      * @return \Illuminate\Http\Response
      */
-    public function show(Demand $demand)
+    public function show($id)
     {
         return Demand::find($id);
     }
@@ -48,7 +61,7 @@ class DemandController extends Controller
      * @param  \App\Models\Demand  $demand
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Demand $demand)
+    public function update(Request $request, $id)
     {
         $request = Demand::find($id);
         $request->update($request->all());
@@ -61,7 +74,7 @@ class DemandController extends Controller
      * @param  \App\Models\Demand  $demand
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Demand $demand)
+    public function destroy($id)
     {
         return Demand::destroy($id);
     }

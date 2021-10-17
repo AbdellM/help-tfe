@@ -7,6 +7,7 @@ use \App\Models\Subject;
 use \App\Models\ServiceType;
 use \App\Models\ProjectType;
 use \App\Models\Demand;
+use \App\Models\File;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,17 +32,22 @@ Route::get('/contacts', function () {
     return Inertia::render('Contacts', [
         'subjects' => Subject::all(),
         'serviceTypes' => ServiceType::all(),
-        'projectTypes' => ProjectType::all()
+        'projectTypes' => ProjectType::all(),
     ]);
 });
 
-Route::get('/services', function () {
+Route::get('/services', function () { /**/ 
     return Inertia::render('Services');
 });
 
 Route::post('/form', 'App\Http\Controllers\DemandController@store');
+Route::get('/test', function () {
+    return Inertia::render('File',[
+        'file' => App\Http\Controllers\DemandController::showFile(),
+    ]);
+});
 
-Route::get('/recontacts', function () {
+Route::get('/thanks', function () {
     return Inertia::render('Recontacts');
 });
 
@@ -51,11 +57,32 @@ Route::get('/dashboard', function () {
     ]);
 });
 
+Route::delete('service/{id}', 'App\Http\Controllers\ServiceController@destroy');
+Route::delete('subject/{id}', 'App\Http\Controllers\SubjectController@destroy');
+Route::delete('project/{id}', 'App\Http\Controllers\ProjectController@destroy');
+Route::put('service/{id}', 'App\Http\Controllers\ServiceController@update');
+Route::put('subject/{id}', 'App\Http\Controllers\SubjectController@update');
+Route::put('project/{id}', 'App\Http\Controllers\ProjectController@update');
+Route::post('service/', 'App\Http\Controllers\ServiceController@store');
+Route::post('subject/', 'App\Http\Controllers\SubjectController@store');
+Route::post('project/', 'App\Http\Controllers\ProjectController@store');
+
+Route::get('/demande/{id}', function ($id) {
+    return Inertia::render('Demande', [
+        'demand' => Demand::find($id),
+        'service' => ServiceType::find(Demand::find($id)->service_type_id),
+        'project' => ProjectType::find(Demand::find($id)->project_type_id),
+        'subject' => Subject::find(Demand::find($id)->subject_id),
+    ]);
+});
+
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard', [
         'subjects' => Subject::all(),
         'serviceTypes' => ServiceType::all(),
         'projectTypes' => ProjectType::all(),
-        'demands' => Demand::all()
+        'demands' => Demand::all(),
+        'file' => File::all()
     ]);
 })->name('dashboard');
