@@ -1,8 +1,6 @@
 <template>
-    <section
-        class="text-gray-600 body-font relative"
-        style="background-color: #e4d4c87a"
-    >
+    <section class="text-gray-600 body-font relative bg-blue-50">
+        color
         <div class="container px-5 pt-24 mx-auto">
             <div class="flex flex-col text-center w-full mb-12">
                 <h1
@@ -41,10 +39,10 @@
                                     bg-gray-100 bg-opacity-50
                                     rounded
                                     border border-gray-300
-                                    focus:border-indigo-500
+                                    focus:border-blue-500
                                     focus:bg-white
                                     focus:ring-2
-                                    focus:ring-indigo-200
+                                    focus:ring-blue-200
                                     text-base
                                     outline-none
                                     text-gray-700
@@ -75,10 +73,10 @@
                                     bg-gray-100 bg-opacity-50
                                     rounded
                                     border border-gray-300
-                                    focus:border-indigo-500
+                                    focus:border-blue-500
                                     focus:bg-white
                                     focus:ring-2
-                                    focus:ring-indigo-200
+                                    focus:ring-blue-200
                                     text-base
                                     outline-none
                                     text-gray-700
@@ -109,10 +107,10 @@
                                     bg-gray-100 bg-opacity-50
                                     rounded
                                     border border-gray-300
-                                    focus:border-indigo-500
+                                    focus:border-blue-500
                                     focus:bg-white
                                     focus:ring-2
-                                    focus:ring-indigo-200
+                                    focus:ring-blue-200
                                     text-base
                                     outline-none
                                     text-gray-700
@@ -142,10 +140,10 @@
                                     bg-gray-100 bg-opacity-50
                                     rounded
                                     border border-gray-300
-                                    focus:border-indigo-500
+                                    focus:border-blue-500
                                     focus:bg-white
                                     focus:ring-2
-                                    focus:ring-indigo-200
+                                    focus:ring-blue-200
                                     text-base
                                     outline-none
                                     text-gray-700
@@ -183,12 +181,12 @@
                                 class="
                                     w-full
                                     bg-gray-100 bg-opacity-50
+                                    focus:border-blue-500
                                     rounded
                                     border border-gray-300
-                                    focus:border-indigo-500
                                     focus:bg-white
                                     focus:ring-2
-                                    focus:ring-indigo-200
+                                    focus:ring-blue-200
                                     text-base
                                     outline-none
                                     text-gray-700
@@ -228,10 +226,10 @@
                                     bg-gray-100 bg-opacity-50
                                     rounded
                                     border border-gray-300
-                                    focus:border-indigo-500
+                                    focus:border-blue-500
                                     focus:bg-white
                                     focus:ring-2
-                                    focus:ring-indigo-200
+                                    focus:ring-blue-200
                                     text-base
                                     outline-none
                                     text-gray-700
@@ -273,10 +271,10 @@
                                     bg-gray-100 bg-opacity-50
                                     rounded
                                     border border-gray-300
-                                    focus:border-indigo-500
+                                    focus:border-blue-500
                                     focus:bg-white
                                     focus:ring-2
-                                    focus:ring-indigo-200
+                                    focus:ring-blue-200
                                     text-base
                                     outline-none
                                     text-gray-700
@@ -307,10 +305,10 @@
                                     bg-gray-100 bg-opacity-50
                                     rounded
                                     border border-gray-300
-                                    focus:border-indigo-500
+                                    focus:border-blue-500
                                     focus:bg-white
                                     focus:ring-2
-                                    focus:ring-indigo-200
+                                    focus:ring-blue-200
                                     text-base
                                     outline-none
                                     text-gray-700
@@ -341,10 +339,10 @@
                                     bg-gray-100 bg-opacity-50
                                     rounded
                                     border border-gray-300
-                                    focus:border-indigo-500
+                                    focus:border-blue-500
                                     focus:bg-white
                                     focus:ring-2
-                                    focus:ring-indigo-200
+                                    focus:ring-blue-200
                                     text-base
                                     outline-none
                                     text-gray-700
@@ -373,10 +371,10 @@
                                     bg-gray-100 bg-opacity-50
                                     rounded
                                     border border-gray-300
-                                    focus:border-indigo-500
+                                    focus:border-blue-500
                                     focus:bg-white
                                     focus:ring-2
-                                    focus:ring-indigo-200
+                                    focus:ring-blue-200
                                     h-32
                                     text-base
                                     outline-none
@@ -392,7 +390,7 @@
                             ></textarea>
                         </div>
                     </div>
-                    <div class="p-2 w-full">
+                    <div class="p-2 m-auto">
                         <label
                             for="file-upload"
                             class="leading-7 text-sm text-gray-600"
@@ -402,15 +400,15 @@
                             @click="open()"
                             class="
                                 flex
-                                pointer
+                                cursor-pointer
                                 mx-auto
                                 text-white
-                                bg-indigo-500
+                                bg-blue-800
                                 border-0
                                 py-2
                                 px-8
                                 focus:outline-none
-                                hover:bg-yellow-200
+                                hover:bg-bleu-900
                                 rounded
                                 text-lg
                             "
@@ -418,29 +416,6 @@
                             Télécharger
                         </div>
                     </div>
-
-                    <div class="p-2 w-full">
-                        <button
-                            type="submit"
-                            class="
-                                flex
-                                mx-auto
-                                text-white
-                                bg-indigo-500
-                                border-0
-                                py-2
-                                px-8
-                                focus:outline-none
-                                hover:bg-yellow-200
-                                rounded
-                                text-lg
-                            "
-                            style="background-color: #523a28"
-                        >
-                            Envoyer
-                        </button>
-                    </div>
-
                     <div
                         :class="disable"
                         class="container items-center lg:px-20"
@@ -552,25 +527,25 @@
                             </div>
                         </div>
                     </div>
-
-                    <div
-                        class="
-                            p-2
-                            w-full
-                            pt-8
-                            mt-8
-                            border-t border-gray-200
-                            text-center
-                        "
-                    >
-                        <a
-                            class="text-yellow-900 underline"
-                            :href="'https://wa.me/' + MainNumber"
-                            >+{{ MainNumber }}</a
+                    <div class="p-2 w-full mb-5">
+                        <button
+                            type="submit"
+                            class="
+                                flex
+                                mx-auto
+                                text-white
+                                bg-blue-800
+                                border-0
+                                py-2
+                                px-8
+                                focus:outline-none
+                                hover:bg-bleu-900
+                                rounded
+                                text-lg
+                            "
                         >
-                        <p class="leading-normal my-5">
-                            49 Smith St. <br />Saint Cloud, MN 56301
-                        </p>
+                            Envoyer
+                        </button>
                     </div>
                 </form>
             </div>

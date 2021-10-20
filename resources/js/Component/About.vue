@@ -1,5 +1,5 @@
 <template>
-    <section class="text-blueGray-700" style="background-color: #e4d4c87a">
+    <section class="text-blue-900 bg-blue-50">
         <div
             class="
                 container
@@ -18,7 +18,7 @@
                     class="object-cover object-center rounded"
                     alt="hero"
                     loading="lazy"
-                    src="https://dummyimage.com/720x600/F3F4F7/8693ac"
+                    src="https://source.unsplash.com/720x600/?study"
                 />
             </div>
             <div
@@ -42,7 +42,6 @@
                         uppercase
                         title-font
                     "
-                    style="color: #523a28"
                 >
                     À propos de nous
                 </h2>
@@ -54,8 +53,8 @@
                         tracking-tighter
                         text-left text-black
                         title-font
+                        text-blue-800
                     "
-                    style="color: #a47551"
                 >
                     {{ Title }}
                 </h1>
@@ -64,7 +63,7 @@
                         mb-8
                         text-base
                         leading-relaxed
-                        text-left text-blueGray-700
+                        text-left text-gray-800
                     "
                 >
                     {{ Text }}
@@ -72,7 +71,7 @@
                 <p
                     v-for="element in Dashes"
                     :key="element"
-                    class="flex mb-2 text-blueGray-600"
+                    class="flex mb-2 text-gray-900"
                 >
                     <span
                         class="
@@ -95,7 +94,6 @@
                         >
                             <path fill="none" d="M0 0h24v24H0z"></path>
                             <path
-                                fill="#523a28"
                                 d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
                             ></path></svg></span
                     >{{ element }}

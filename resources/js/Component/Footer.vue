@@ -1,8 +1,5 @@
 <template>
-    <footer
-        class="text-white body-font"
-        style="background-color: #a47551; margin-top: 8px"
-    >
+    <footer class="text-white body-font bg-blue-800" style="margin-top: 8px">
         <div
             class="
                 container
@@ -33,9 +30,8 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
-                    class="w-10 h-10 text-white p-2 rounded-full"
+                    class="w-10 h-10 text-white bg-blue-900 p-2 rounded-full"
                     viewBox="0 0 24 24"
-                    style="background-color: #523a28"
                 >
                     <path
                         d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"

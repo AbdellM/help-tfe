@@ -4,12 +4,12 @@
         <Header />
         <About id="about" />
         <ParallaxScroll
-            Url="https://www.wallpapertip.com/wmimgs/49-497241_study-hd-wallpaper-for-laptop.jpg"
+            Url="https://source.unsplash.com/1080x721/?study"
             Height="250"
         />
         <Services id="service" />
         <ParallaxScroll
-            Url="https://www.wallpapertip.com/wmimgs/49-497241_study-hd-wallpaper-for-laptop.jpg"
+            Url="https://source.unsplash.com/1081x721/?study"
             Height="250"
         />
         <Form

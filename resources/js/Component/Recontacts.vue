@@ -1,8 +1,5 @@
 <template>
-    <section
-        class="text-gray-600 body-font"
-        style="background-color: #e4d4c87a"
-    >
+    <section class="text-gray-600 body-font bg-blue-50">
         <div
             class="
                 container

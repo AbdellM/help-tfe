@@ -2,7 +2,7 @@
     <div
         class="w-full bg-center bg-cover h-128"
         style="
-            background-image: url(https://www.wallpapertip.com/wmimgs/49-497241_study-hd-wallpaper-for-laptop.jpg);
+            background-image: url(https://source.unsplash.com/1080x720/?study);
         "
     >
         <div
@@ -22,6 +22,7 @@
                         font-semibold
                         text-white
                         uppercase
+                        bolder
                         lg:text-3xl
                     "
                 >
@@ -33,8 +34,7 @@
                     type="button"
                     class="
                         w-full
-                        px-4
-                        py-2
+                        p-4
                         mt-4
                         text-sm
                         font-medium
@@ -45,10 +45,10 @@
                         transform
                         rounded-md
                         lg:w-auto
+                        bg-blue-800
                         hover:bg-blue-500
                         focus:outline-none focus:bg-blue-500
                     "
-                    style="background-color: #523a28"
                 >
                     Contactez-Nous
                 </button>

@@ -1,8 +1,5 @@
 <template>
-    <section
-        class="text-gray-600 body-font relative"
-        style="background-color: #e4d4c87a"
-    >
+    <section class="text-gray-600 body-font relative bg-blue-50">
         <div
             class="
                 px-4
@@ -25,20 +22,16 @@
                             text-3xl
                             font-bold
                             tracking-tight
-                            text-gray-900
+                            text-blue-900
                             sm:text-4xl sm:leading-none
                             xl:max-w-lg
                         "
-                        style="color: #523a28"
                     >
                         Nos services
                     </h2>
                 </div>
                 <div class="lg:w-1/2">
-                    <p
-                        class="text-base text-gray-700 md:text-lg"
-                        style="color: #a47551"
-                    >
+                    <p class="text-base text-blue-700 md:text-lg">
                         Nous faisons toutes sortes de travaux universitaires
                         avec un contenu unique.
                     </p>
@@ -55,7 +48,8 @@
                             h-16
                             mb-4
                             rounded-full
-                            bg-indigo-50
+                            bg-blue-50
+                            text-blue-900
                         "
                     >
                         <svg
@@ -78,10 +72,7 @@
                             ></path>
                         </svg>
                     </div>
-                    <h6
-                        class="mb-2 font-semibold leading-5"
-                        style="color: #523a28"
-                    >
+                    <h6 class="mb-2 font-semibold leading-5 text-blue-700">
                         {{ element.Service }}
                     </h6>
                     <ul class="mb-4 -ml-1 space-y-2">
@@ -97,6 +88,7 @@
                                         h-5
                                         mt-px
                                         text-deep-purple-accent-400
+                                        text-blue-900
                                     "
                                     stroke="currentColor"
                                     viewBox="0 0 52 52"
@@ -106,7 +98,6 @@
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         fill="none"
-                                        color="#523a28"
                                         points="29 13 14 29 25 29 23 39 38 23 27 23"
                                     ></polygon>
                                 </svg>

@@ -13,8 +13,8 @@
                 top-0
                 bg-white
                 z-40
+                bg-blue-800
             "
-            style="background-color: #a47551"
         >
             <a
                 class="
@@ -34,9 +34,8 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
-                    class="w-10 h-10 text-white p-2 rounded-full"
+                    class="w-10 h-10 text-white p-2 rounded-full bg-blue-900"
                     viewBox="0 0 24 24"
-                    style="background-color: #523a28"
                 >
                     <path
                         d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"

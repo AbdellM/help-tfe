@@ -24,7 +24,7 @@ export default {
 
 <style scoped>
 .parallax {
-    background-image: url("https://www.wallpapertip.com/wmimgs/49-497241_study-hd-wallpaper-for-laptop.jpg");
+    /* background-image: url("https://source.unsplash.com/1080x721/?study"); */
 
     /* Set a specific height */
     min-height: 200px;
