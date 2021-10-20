@@ -3,7 +3,6 @@
         <div
             class="
                 container
-                mx-auto
                 flex flex-wrap
                 p-2
                 flex-col
@@ -11,6 +10,9 @@
                 items-center
                 fixed
                 top-0
+                right-0
+                left-0
+                w-full
                 bg-white
                 z-40
                 bg-blue-800

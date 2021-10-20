@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="overflow-y: hidden">
         <NavBar />
         <Form
             :subjects="subjects"

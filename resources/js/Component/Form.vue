@@ -1,6 +1,5 @@
 <template>
     <section class="text-gray-600 body-font relative bg-blue-50">
-        color
         <div class="container px-5 pt-24 mx-auto">
             <div class="flex flex-col text-center w-full mb-12">
                 <h1
