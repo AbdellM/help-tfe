@@ -28,19 +28,16 @@ class DemandController extends Controller
      */
     public function store(Request $request)
     {
-        // Demand::create($request->all());
-        // echo($request);
-        $arr = array();
-        foreach ($request->file('files') as $file) {
-            array_push($arr, Storage::putFile('fichiers', $file));
-        }
+        $demand_id = Demand::create($request->all())->id;
 
-        // return redirect('/thanks');
-        return $arr;
-    }
-    public static function showFile()
-    {
-        return File::all();
+        foreach ($request->get('files') as $file) {
+            $req['demand_id'] = $demand_id;
+            $req['url'] = $file;
+
+            File::create($req);        
+        }
+        
+        return redirect('/thanks');
     }
 
     /**

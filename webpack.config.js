@@ -5,6 +5,5 @@ module.exports = {
         alias: {
             "@": path.resolve("resources/js"),
         },
-        fallback: { assert: false },
     },
 };

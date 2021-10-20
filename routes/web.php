@@ -68,11 +68,13 @@ Route::post('subject/', 'App\Http\Controllers\SubjectController@store');
 Route::post('project/', 'App\Http\Controllers\ProjectController@store');
 
 Route::get('/demande/{id}', function ($id) {
+    $urls = File::where('demand_id', $id)->orderBy('id')->get();
     return Inertia::render('Demande', [
         'demand' => Demand::find($id),
-        'service' => ServiceType::find(Demand::find($id)->service_type_id),
-        'project' => ProjectType::find(Demand::find($id)->project_type_id),
-        'subject' => Subject::find(Demand::find($id)->subject_id),
+        'service' => ServiceType::find(Demand::find($id)->service_type_id)->serviceType,
+        'project' => ProjectType::find(Demand::find($id)->project_type_id)->projectType,
+        'subject' => Subject::find(Demand::find($id)->subject_id)->subject,
+        'urls' => $urls->toArray(),
     ]);
 });
 

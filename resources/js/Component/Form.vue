@@ -398,34 +398,25 @@
                             class="leading-7 text-sm text-gray-600"
                             >Télécharger vos fichiers</label
                         >
-                        <input
-                            multiple
-                            @change="onFileChange"
-                            id="file-upload"
-                            type="file"
-                            name="file"
-                            enctype="multipart/form-data"
-                            accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                        <div
+                            @click="open()"
                             class="
-                                w-full
-                                bg-gray-100 bg-opacity-50
+                                flex
+                                pointer
+                                mx-auto
+                                text-white
+                                bg-indigo-500
+                                border-0
+                                py-2
+                                px-8
+                                focus:outline-none
+                                hover:bg-yellow-200
                                 rounded
-                                border border-gray-300
-                                focus:border-indigo-500
-                                focus:bg-white
-                                focus:ring-2
-                                focus:ring-indigo-200
-                                text-base
-                                outline-none
-                                text-gray-700
-                                py-1
-                                px-3
-                                leading-8
-                                transition-colors
-                                duration-200
-                                ease-in-out
+                                text-lg
                             "
-                        />
+                        >
+                            Télécharger
+                        </div>
                     </div>
 
                     <div class="p-2 w-full">
@@ -588,10 +579,7 @@
 </template>
 
 <script>
-// import { axios } from "../../../node_modules/axios/index";
-import axios from "axios";
-require("../saveFIleDrive");
-// import * as Drive from "../saveFIleDrive.js";
+import * as filestack from "filestack-js";
 
 export default {
     props: {
@@ -613,12 +601,25 @@ export default {
                 limitdate: "",
                 topic: "",
                 remark: "",
-                files: {},
+                files: [],
             },
             disable: "disable",
         };
     },
     methods: {
+        open() {
+            const client = filestack.init("AmMwmviSQICKgE0KTv4mwz");
+            const options = {
+                onUploadDone: (file) => {
+                    file.filesUploaded.forEach((element) => {
+                        this.form.files.push(element.url);
+                    });
+                },
+                fromSources: ["local_file_system", "url", "googledrive"],
+                maxFiles: 5,
+            };
+            client.picker(options).open();
+        },
         Submit() {
             if (
                 this.form.project_type_id == "Choisissez une option" ||
@@ -627,52 +628,8 @@ export default {
             ) {
                 this.disable = "enable";
             } else {
-                // this.$inertia.post("/form", this.form);
-                // let formData = new URLSearchParams();
-                // formData.append("form", this.form);
-                axios.post("/form", this.getData()).then((res) => {
-                    console.log(res.data);
-                    res.data.forEach((element) => {
-                        Drive.uploadFile(element);
-                    });
-                });
+                this.$inertia.post("/form", this.form);
             }
-        },
-
-        onFileChange(e) {
-            this.form.files = e.target.files || e.dataTransfer.files;
-
-            // console.log(this.form.files);
-            // if (!this.form.files.length) return;
-            // this.createImage(this.form.files[0]);
-        },
-        // createImage(file) {
-        //     var reader = new FileReader();
-        //     var vm = this;
-
-        //     reader.onload = (e) => {
-        //         vm.image = e.target.result;
-        //     };
-        //     reader.readAsDataURL(file);
-        // },
-        getData() {
-            let formData = new FormData();
-            formData.append("name", this.form.name);
-            formData.append("email", this.form.email);
-            formData.append("phone", this.form.phone);
-            formData.append("project_type_id", this.form.project_type_id);
-            formData.append("service_type_id", this.form.service_type_id);
-            formData.append("subject_id", this.form.subject_id);
-            formData.append("pageNbr", this.form.pageNbr);
-            formData.append("limitdate", this.form.limitdate);
-            formData.append("topic", this.form.topic);
-            formData.append("remark", this.form.remark);
-
-            for (let index = 0; index < this.form.files.length; index++) {
-                formData.append(`files[${index}]`, this.form.files[index]);
-            }
-
-            return formData;
         },
     },
 };

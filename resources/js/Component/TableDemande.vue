@@ -122,8 +122,6 @@ export default {
             projectTypes: "projectTypes",
             subjects: "subjects",
             input: [],
-            toAdd: "",
-            enable: false,
         };
     },
     methods: {

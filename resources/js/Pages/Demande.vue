@@ -112,7 +112,7 @@
                                             "
                                         >
                                             <label>
-                                                {{ project.projectType }}
+                                                {{ project }}
                                             </label>
                                         </td>
                                     </tr>
@@ -138,7 +138,7 @@
                                             "
                                         >
                                             <label>
-                                                {{ service.serviceType }}
+                                                {{ service }}
                                             </label>
                                         </td>
                                     </tr>
@@ -164,7 +164,7 @@
                                             "
                                         >
                                             <label>
-                                                {{ subject.subject }}
+                                                {{ subject }}
                                             </label>
                                         </td>
                                     </tr>
@@ -272,6 +272,43 @@
                                             </label>
                                         </td>
                                     </tr>
+                                    <tr
+                                        v-for="(url, index) in urls"
+                                        :key="url"
+                                        class="text-gray-700"
+                                    >
+                                        <td
+                                            class="
+                                                px-4
+                                                py-3
+                                                text-ms
+                                                font-semibold
+                                                border
+                                            "
+                                        >
+                                            <label>
+                                                Fichier {{ index + 1 }}
+                                            </label>
+                                        </td>
+                                        <td
+                                            class="
+                                                px-4
+                                                py-3
+                                                text-ms
+                                                font-semibold
+                                                border
+                                            "
+                                        >
+                                            <label>
+                                                <a
+                                                    :href="url.url"
+                                                    target="_blank"
+                                                >
+                                                    {{ url.url }}
+                                                </a>
+                                            </label>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -291,9 +328,10 @@ export default {
     },
     props: {
         demand: {},
-        service: {},
-        project: {},
-        subject: {},
+        service: "",
+        project: "",
+        subject: "",
+        urls: [],
     },
 };
 </script>
